@@ -94,6 +94,13 @@ def marks(staff):
     if count == 0:
         print("Студенты не найдены.")
 
+def help:
+    print("exit - выход из программы")
+    print("add - добавить запись с словарь")
+    print("show - показать записи в словаре")
+    print("marks - показать у кого 2")
+    print("help - помощь")
+
 
 def main():
     """
@@ -118,6 +125,9 @@ def main():
 
         elif command == 'marks':
             marks(students)
+
+        elif command == 'help':
+            help()
 
 
 if __name__ == '__main__':
