@@ -12,7 +12,7 @@ import sys
 # 4. если таких студентов нет, вывести соответствующее сообщение.
 
 
-def add(mas):
+def add(mas, staff):
     """
     Ввести данные студента в словарь
     """
@@ -21,14 +21,15 @@ def add(mas):
     group = input("Номер группы? ")
     buf = [int(a) for a in input().split()]
     lmarks = list(filter(lambda x: 0 < x < 6, buf))
-    if len(lmarks) != mas:
-        error()
-
-    return {
-        'name': name,
-        'group': group,
-        'marks': lmarks,
-    }
+    if len(lmarks) != 5:
+        print("ошибка в количестве оценок", file=sys.stderr)
+    else:
+        student = {
+            'name': name,
+            'group': group,
+            'marks': lmarks,
+        }
+        staff.append(student)
 
 
 def show(staff):
@@ -94,14 +95,6 @@ def marks(staff):
         print("Студенты не найдены.")
 
 
-def error():
-    """
-    Ошибка при выполнении программы
-    """
-    print("Что-то пошло не так", file=sys.stderr)
-    exit()
-
-
 def main():
     """
     Главная функция программы
@@ -116,8 +109,7 @@ def main():
             break
 
         elif command == 'add':
-            student = add(n)
-            students.append(student)
+            add(n, students)
             if len(students) > 1:
                 students.sort(key=lambda item: item.get('name', ''))
 
