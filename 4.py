@@ -3,19 +3,31 @@
 
 
 def get_input():
+    """
+    Позволяет ввести строку
+    """
     st = input("Введите строку: ")
     return st
 
 
 def test_input(st):
+    """
+    Проверят можно ли преобразовать строку в число
+    """
     return st.isnumeric()
 
 
 def str_to_int(st):
+    """
+    Преобразует строку в число
+    """
     return int(st)
 
 
 def print_int(st):
+    """
+    Выводит на дисплей преобразованное число
+    """
     print(st)
 
 
